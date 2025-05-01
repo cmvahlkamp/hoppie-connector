@@ -58,7 +58,7 @@ class HoppieConnector(object):
         p = HoppieMessageParser(self._station)
         for d in response.get_data():
             try:
-                result.append((d['id'], p.parse(d)))
+                result.append(d)
             except ValueError as e:
                 warnings.warn(f"Unable to parse {d}: {e}", HoppieWarning)
         return result, delay
